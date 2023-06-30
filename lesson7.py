@@ -36,3 +36,14 @@ s = ['j**i' for i in range(1, 10)]
 print(s)
 
 #я знайшла ось цей варіант, але не впевнена що правильно зрозуміла завдання 
+
+
+#task4
+list_days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
+dict_days = {1: 'monday', 2: 'tuesday', 3: 'wednesday', 4: 'thursday', 5: 'friday', 6: 'saturday', 7: 'sunday'}
+
+print("the original dictionary: ", dict_days)
+rev_dict = {}
+for key in reversed(dict_days):
+    rev_dict[key] = dict_days[key]
+print("the reversed dictionary: ", rev_dict)

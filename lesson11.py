@@ -77,7 +77,6 @@ with open("my_file2.json", "w") as file:
     json.dump(data, file)
     file.close()
 
-
 #delete data 
 with open("my_file2.json", "r") as file:
     data = json.load(file)
@@ -102,8 +101,6 @@ with open("my_file2.json", "r") as file:
 with open("my_file2.json", "w") as file:
     file.write(data)
 
-
-
 #search data
 import json
 
@@ -125,8 +122,6 @@ for number in data:
         print("number is found")
     else:
         print("None")
-
-
 
 
 #практичні завдання з лекції 01.07 які вийшло зробити
@@ -156,8 +151,6 @@ file.write(program)
 
 file.close()
 
-
-
 #task2
 #1
 lines = [
@@ -175,7 +168,6 @@ with open("file.txt", "w") as file:
         file.write(str(lines) + "\n") 
     file.close() 
 
-
 #2
 lines = {
     'line': '2',
@@ -192,8 +184,6 @@ with open('new_file.txt', 'w') as new_file:
         count += 1
     file.close()
 
-
-
 #task3
 import json
 
@@ -201,7 +191,6 @@ import json
 with open("name.json", "r") as file:
     data = json.load(file)
     print(data)
-
 
 #append
 with open("name.json", "r") as file:
@@ -249,8 +238,6 @@ with open('file.csv', 'a') as file:
     writer = csv.writer(file)
     writer.writerow(data)
     file.close()
-
-
 
 #my data to another csv file
 with open("my_file", "w") as file:
@@ -305,7 +292,6 @@ with open("file.csv", "w") as file:
     writer.writerows(data)
         
     
-
 #Записати у файл дані, які введе користувач з терміналу. Передбачити можливість запису в файли різних форматів - txt/json/csv
 print("Hi! What's your name?")
 input1 = input()
@@ -320,9 +306,6 @@ file.write("\n")
 
 file.close()
 
-
-
-
 print("What's your name and surname?")
 input_1 = input()
 print("I need your phone number")
@@ -333,9 +316,6 @@ with open("data_structure.csv", "w") as file:
     writer.writerow(input_1)
     writer.writerow(input_2)
     file.close()
-
-
-
 
 import json 
 

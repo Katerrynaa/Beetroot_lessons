@@ -255,8 +255,121 @@ department.add_employee(our_employee1)
 department.remove_employee(our_employee3)
 print(department.calculate_average_salary())
 
+#практичне з 27.07 до цієї теми
+# Завдання 1: Клас "Приз"
+# Створіть клас Prize, який представляє приз з можливістю додавання двох призів, порівняння їх за вартістю або категорією, 
+# а також виведення опису призу у зрозумілому форматі.
 
-  
+class Prize:
+    def __init__(self, value):
+        self.value = value 
+
+    def __add__(self, other):
+        return Prize(self.value + other.value)
+    
+    def __eq__(self, other):
+        if isinstance(other, Prize):
+            if other.value == self.value:
+                return True
+            return False
+    
+    def __str__(self):
+        return f"<Prize: {self.value}>"
+    
+
+a = Prize(3000)
+b = Prize(1200)
+a + b 
+print(a + b)
+
+car = Prize("Car")
+phone = Prize("Car")
+print("car == phone :", (car == phone))
+
+car = Prize("Car")
+phone = Prize("Phone")
+print("car == phone :", (car == phone))
+
+# Завдання 2: Клас "Музичний трек"
+# Створіть клас MusicTrack, який представляє музичний трек з можливістю додавання двох треків (комбінація імен треків), 
+# порівняння треків за тривалістю або стилем, а також виведення назви треку у зрозумілому форматі.
+
+class MusicTrack:
+    def __init__(self, style):
+        self.style = style 
+
+    def __add__(self, other):
+        return MusicTrack(self.style + other.style)
+    
+    def __eq__(self, other):
+        if isinstance(other, MusicTrack):
+            if other.style == self.style:
+                return True
+            return False
+    
+    def __str__(self):
+        return f"<MusicTrack: {self.style}>"
+    
+track1 = MusicTrack('House of balloons')
+track2 = MusicTrack('Darkside')
+track1 + track2 
+print(track1 + track2)
+
+electronic_music = MusicTrack("Funk")
+funk = MusicTrack("Funk")
+print("electronic_music == funk: ", (electronic_music == funk))
+print("funk == funk: ", (funk == funk))
+
+# Завдання 3: Клас "Часовий інтервал"
+# Створіть клас TimeInterval, який представляє часовий інтервал. 
+# Кожен інтервал має атрибути: початкова дата та кінцева дата. 
+# Перепишіть магічний метод __contains__, щоб можна було перевіряти, чи знаходиться певна дата всередині інтервалу.
+
+from datetime import datetime
+
+class TimeInterval:
+    def __init__(self, start_time, end_time):
+        self.start_time = start_time
+        self.end_time = end_time 
+
+    def __contains__(self, date):
+        self.date = date 
+        return self.start_time <= date <= self.end_time
+    
+time1 = TimeInterval(start_time=datetime(2012, 6, 11), end_time=datetime(2024, 12, 28))
+if datetime(2021, 8, 29) in time1:
+   print(True)
+else:
+    print(False)
+
+if datetime(2025, 8, 29) in time1:
+   print(True)
+else:
+    print(False)
+
+
+# Завдання 4: Клас "Студент"
+# Створіть клас Student, який представляє студента. Кожен студент має атрибути: ім'я, курс та середній бал.
+#  Перепишіть магічний метод __lt__, щоб студенти можна було порівнювати за середнім балом, а потім за ім'ям (у разі рівних балів)
+
+class Student:
+    def __init__(self, name, course, average_score):
+        self.name = name 
+        self.course = course 
+        self.average_score = average_score
+
+    def __It__(self, other):
+        return self.average_score <= other.average_score
+
+s1 = Student(name='Nick', course='Psychology', average_score='198')
+s2 = Student(name='Alina', course='Basic Programming', average_score='123')
+
+s1_average_score = '198'
+s2_average_score = '123'
+print(s1_average_score < s2_average_score)
+print(s1_average_score > s2_average_score)
+
+
 
     
     

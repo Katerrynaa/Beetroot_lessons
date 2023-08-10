@@ -132,23 +132,3 @@ average2 = calculate_average(grades_dict2)
 print("Average of grades: ", average)
 print("Average of grades: ", average1)
 print("Average of grades: ", average2)
-
-
-
-
-    
-
-
-
-
-
-
-
-
-    
-
-
-        
-
-    
-

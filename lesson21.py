@@ -95,9 +95,3 @@ def test_content_file(file_with_lines):
     with open(file_with_lines, "r+") as file:
         result = code_pytest(file)
     assert result == 2
-
-
-   
-   
-
-

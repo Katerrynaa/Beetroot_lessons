@@ -89,4 +89,25 @@ AND ship_region IS NOT NULL;
 
 SELECT employee_id, last_name, first_name FROM employees WHERE title="Sales Representative";
 
+SELECT products.product_name, order_details.order_id, order_details.quantity
+FROM order_details 
+JOIN products ON order_details.product_id=products.product_id
+WHERE order_details.quantity>1;
+
+SELECT categories.category_name, products.quantity_per_unit
+FROM categories
+JOIN products ON categories.category_id=products.product_id 
+LIMIT 10;
+
+select employees.first_name, employees.hire_date, orders.order_date
+FROM employees
+JOIN orders ON employees.employee_id=orders.employee_id
+WHERE order_date IS NULL;
+
+SELECT customers.company_name, employees.first_name, employees.last_name, orders.order_date
+FROM orders 
+JOIN customers ON orders.customer_id=customers.customer_id
+JOIN employees ON orders.employee_id=employees.employee_id
+WHERE orders.order_date>(2010-01-01);
+
 '''

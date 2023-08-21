@@ -110,4 +110,12 @@ JOIN customers ON orders.customer_id=customers.customer_id
 JOIN employees ON orders.employee_id=employees.employee_id
 WHERE orders.order_date>(2010-01-01);
 
+SELECT customers.company_name, suppliers.company_name, customers.customer_id, suppliers.supplier_id,
+customers.city,suppliers.city
+JOIN orders ON order_details.order_id=orders.order_id
+JOIn customers ON customers.customer_id=orders.customer_id
+JOIn products ON order_details.product_id=products.product_id
+JOIN suppliers ON products.supplier_id=suppliers.supplier_id
+WHERE customers.city = suppliers.city;
+
 '''

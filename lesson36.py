@@ -120,3 +120,66 @@ async def func():
         await server.serve_forever()
 
 asyncio.run(func())
+
+# practice 24.08
+# Асинхронний REST API запит:
+# Створіть програму, яка асинхронно взаємодіє з публічним REST API за допомогою aiohttp, отримуючи та оброблюючи дані з відповідей
+import aiohttp
+import asyncio
+import aiofiles
+
+async def func():
+    async with aiohttp.ClientSession() as session:
+        async with session.get("https://russianwarship.rip/api/v2/war-info/status/en") as response:
+            print(response.status)
+            print(await response.text())
+asyncio.run(func())
+
+async def func():
+    async with aiohttp.ClientSession() as session:
+        async with session.get("https://russianwarship.rip/api/v2/statistics?offset=0&limit=50&date_from=2022-02-24&date_to=2022-03-01") as response:
+            print(response.status)
+            print(await response.text())
+asyncio.run(func())
+
+# Асинхронний таймер:
+# Напишіть програму, яка використовує asyncio для запуску функції через певний інтервал часу. Наприклад, виводьте повідомлення кожну секунду.
+async def words():
+    for word in "Hi", "HRU?":
+        print(word)
+        await asyncio.sleep(1)
+
+async def numbers():
+    for i in range(1, 3):
+        print(i)
+        await asyncio.sleep(1)
+
+async def inititals():
+    for initial in "AO", "BP", "SR":
+        print(initial)
+        await asyncio.sleep(1)
+
+async def main():
+    task1 = asyncio.create_task(numbers())
+    task2 = asyncio.create_task(words())
+    task3 = asyncio.create_task(inititals())
+    await asyncio.gather(task1, task2, task3)
+
+asyncio.run(main())
+
+# Асинхронний зчитувач файлів:
+# Створіть програму, яка асинхронно читає дані з кількох файлів та виводить їх зміст в консоль.
+async def read_file(file_name):
+    async with aiofiles.open(file_name, "r") as file:
+        content = await file.read()
+        return content 
+
+async def func():
+    file_names = ['async_file1.txt', 'async_file2.txt']
+    t = [read_file(file_name) for file_name in file_names]
+    results = await asyncio.gather(*t)
+
+    for file_name, content in zip(file_names, results):
+        print(file_name, content)
+
+asyncio.run(func())

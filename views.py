@@ -6,8 +6,8 @@ from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login
 from .models import ProfileUser, Message
-# lesson 38
 
+# lesson 38
 def hello(request):
     return HttpResponse("Hello from notes app!")
 

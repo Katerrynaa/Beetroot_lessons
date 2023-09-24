@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+# lesson 38
 
 def hello(request):
     return HttpResponse("Hello from notes app!")
@@ -12,9 +13,3 @@ def profile_user(request):
 def message(request):
     msg = Message.objects.all()
     return render(request, 'msg.html', {'msg': msg})
-
-    
-    
-
-    
-

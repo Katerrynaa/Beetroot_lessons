@@ -20,7 +20,7 @@ def message(request):
     msg = Message.objects.all()
     return render(request, 'msg.html', {'msg': msg})
 
-# lesson 41
+# lesson 41, 44
 def sign_up(request):
     user_form = SignUp()
     if request.method == "POST":
